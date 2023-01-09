@@ -13,3 +13,8 @@ function generatePin() {
     const pin = getFourDigit();
     document.getElementById('display-pin').value = pin;
 };
+
+document.getElementById('key-pad').addEventListener('click',
+    function (event) {
+        console.log(event.target.innerText);
+    });
