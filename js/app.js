@@ -16,5 +16,32 @@ function generatePin() {
 
 document.getElementById('key-pad').addEventListener('click',
     function (event) {
-        console.log(event.target.innerText);
+        const number = (event.target.innerText);
+        const calcInput = document.getElementById('typed-number');
+        if (isNaN(number)) {
+            if (number == 'C') {
+                calcInput.value = '';
+            }
+        }
+        else {
+            const previousNumber = calcInput.value;
+            const newNumber = previousNumber + number;
+            calcInput.value = newNumber;
+        }
+
     });
+
+function verifyPin() {
+    const pin = document.getElementById('display-pin').value;
+    const typedNumbers = document.getElementById('typed-number').value;
+    const successMessage = document.getElementById('notify-success');
+    const errorMessage = document.getElementById('notify-fail');
+    if (pin == typedNumbers) {
+        successMessage.style.display = 'block';
+        errorMessage.style.display = 'none';
+    }
+    else {
+        errorMessage.style.display = 'block';
+        successMessage.style.display = 'none';
+    }
+};
