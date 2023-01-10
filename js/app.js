@@ -22,6 +22,12 @@ document.getElementById('key-pad').addEventListener('click',
             if (number == 'C') {
                 calcInput.value = '';
             }
+            else if (number == 'Back') {
+                const previousNumber = calcInput.value;
+                let length = parseInt(previousNumber.length);
+                const newNumber = previousNumber.slice(0, length - 1);
+                calcInput.value = newNumber;
+            }
         }
         else {
             const previousNumber = calcInput.value;
